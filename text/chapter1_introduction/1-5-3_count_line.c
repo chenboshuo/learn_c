@@ -12,3 +12,10 @@ int main() {
   printf("%d\n", nl);
   return 0;
 }
+//input
+// sasd
+// scjos
+// weuor
+// ^Z
+// output
+// 3
