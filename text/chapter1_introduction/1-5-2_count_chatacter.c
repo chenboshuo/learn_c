@@ -3,7 +3,8 @@
 int main() {
   double nc;
 //  for(nc = 0; getchar() = EOF; ++nc);
-  for(nc = 0; getchar() != EOF; ++nc);
+  for(nc = 0; getchar() != EOF; ++nc)
+    ;//执行空语句
   printf("%.0f\n", nc);
   return 0;
 }
