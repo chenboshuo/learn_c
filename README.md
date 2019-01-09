@@ -12,13 +12,13 @@
 复制这条信息，￥cVhzbq9n5V8￥ ，打开【手机淘宝】即可下单
 ```
 ## 结构
-> [contents_of_the_class 课上讲的内容(含课件)](https://github.com/chenboshuo/c_learning/tree/master/contents_of_the_class)
+> [contents_of_the_class| 课上讲的内容(含课件)](https://github.com/chenboshuo/c_learning/tree/master/contents_of_the_class)
 
-> [exam 考试系统的相关内容](https://github.com/chenboshuo/c_learning/tree/master/exam)
->> [exam/wrong_question 我的错题](https://github.com/chenboshuo/c_learning/tree/master/exam/wrong_question)
+> [exam| 考试系统的相关内容](https://github.com/chenboshuo/c_learning/tree/master/exam)
+>> [exam/wrong_question| 我的错题](https://github.com/chenboshuo/c_learning/tree/master/exam/wrong_question)
 
-> [school_assignment 学校作业系统的题](https://github.com/chenboshuo/c_learning/tree/master/school_assignment)
+> [school_assignment| 学校作业系统的题](https://github.com/chenboshuo/c_learning/tree/master/school_assignment)
 
-> [the_c_programming_language C程序设计语言的相关内容](https://github.com/chenboshuo/c_learning/tree/master/the_c_programming_language)
+> [the_c_programming_language| C程序设计语言的相关内容](https://github.com/chenboshuo/c_learning/tree/master/the_c_programming_language)
 
 > [the_c_programming_language_homework C程序设计语言的相关练习](https://github.com/chenboshuo/c_learning/tree/master/the_c_programming_language_homework)
