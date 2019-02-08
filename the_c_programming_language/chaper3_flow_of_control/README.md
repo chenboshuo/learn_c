@@ -46,8 +46,10 @@ for (表达式1; 表达式2; 表达式3) {
 希尔排序具体步骤
 1. 设定一个较大间隔gap，对所有间隔为gap的数据通过插入排序法进行排序；
 2. 执行完之后根据某种逻辑缩小gap（代码中采用除以3取整的办法），重复上述过程，直到gap = 0。
-- [shellsort](./shell_sort.cpp)
-- [动画演示](https://algorithm-visualizer.org/brute-force/shellsort)
+
+ [shell_sort.cpp](./shell_sort.cpp)
+
+ [动画演示](https://algorithm-visualizer.org/brute-force/shellsort)
 
 逗号运算符(',')是C语言优先级最低的运算符,被','分隔的一对表达式按照从左向右顺序求值,各表达式右边的操作数的类型和值即为结果的类型和值.
 
@@ -56,3 +58,18 @@ for (表达式1; 表达式2; 表达式3) {
 c = s[i], s[i] = s[j], s[j] = c;
 ```
 这样元素的交换过程可以看作单步操作.
+
+## 3.6 do-while 循环
+
+```
+do {
+  /* code */
+} while(/* condition */);
+
+```
+
+循环体至少被执行一次
+
+- [int_to_char.cpp](./int_to_char.cpp)
+
+这里有必要使用do-while,即使n为0也要保存一个字符到字符串中
