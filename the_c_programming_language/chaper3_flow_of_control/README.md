@@ -73,3 +73,7 @@ do {
 - [int_to_char.cpp](./int_to_char.cpp)
 
 这里有必要使用do-while,即使n为0也要保存一个字符到字符串中
+
+## 3.7 break continue
+break 能从内层循环中立刻跳出
+- [delete_null.cpp](./delete_null.cpp)
