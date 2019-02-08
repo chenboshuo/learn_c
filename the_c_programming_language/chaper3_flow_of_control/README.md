@@ -77,3 +77,17 @@ do {
 ## 3.7 break continue
 break 能从内层循环中立刻跳出
 - [delete_null.cpp](./delete_null.cpp)
+continue用于for,while,do-while语句开始下一次循环的执行.
+在while和do-while中continue意味着立刻执行测试部分;
+for循环中,意味着使控制转移到递增循环变量的部分.
+
+continue只用于循环语句
+
+```cpp
+for (i = 0; i < n; i++) {
+  if (a[i] < 0)//  跳过负数元素
+    continue;
+  // 处理正元素
+}
+```
+当循环后面部分比较复杂时,常常会用到continue语句.这种情况下,如果不使用continue,则可能需要把测试颠倒过来或者缩进另一层循环,这样会使程序嵌套更深.
