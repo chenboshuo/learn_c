@@ -19,9 +19,9 @@ return 表达式
 调用函数可以忽略返回值,return后面也不一定需要表达式.return后面没有表达式时,函数不会向调用者返回值.当被调用的函数执行到最右边的花括号时而结束执行时,控制同样会返回给调用者(不返回值).如果某个函数从一个地方返回有返回值,而从另一个地方没有返回值,该函数不非法,但可能是一种文体的征兆.
 
 ## 4.2 返回非整型值得函数
-- [string_to_double.cpp](./string_to_double.cpp)
-标准库中包含类似atof函数,在头文件`<stdlib.h>`中声明
-
+- [string_to_double.cpp 字符串转为浮点数](./string_to_double.cpp)
+标准库中包含类似atof函数,在头文件`<stdlib.h>`中声明.
+- [calculator 简单计算器](calculator.cpp)
 ```cpp
 double sum,atof(char[])
 ```
