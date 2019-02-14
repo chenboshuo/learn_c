@@ -78,4 +78,5 @@ while (下一个是运算符或操作数不是EOF) {
   }
 }
 ```
+main不需要了解控制栈的变量信息,所以可以作为外部变量
 - [RPN_calculator 逆波兰计算器](./RPN_calculator.cpp)
