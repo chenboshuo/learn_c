@@ -135,3 +135,49 @@ int sp = 0;
 double val[MAXVAL];
 ```
 由于文件file1 中的extern声明不仅放在定义的外面,而且还放在他们的前面, 因此它们适用于该文件中的所有函数.对于file1,这样一组声明就够了.如果要在同一个文件中先使用,后定义变量sp与val, 也需要按照这种方式组织文件.
+
+## 4.5 头文件
+我们对下面两个因素进行了折中:一方面是我们期望每个文件只能访问它完成任务所需的信息;另一方面是现实中维护多个头文件比较困难.
+我们可以得出这样的结论: 对于某些中等规模的程序,最好只用一个头文件存放各个程序共享的对象.较大的程序需要更多头文件,我们需要精心组织他们.
+- [RPN_calculator](./RPN_calculator)
+主函数main.c:
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include "calc.h"
+#define MAXTOP 100
+```
+push与pop及外部变量放到stack.c中
+```c
+#include <stdio.h>
+#include "calc.h"
+int sp = 0;
+double val[MAXVAL];
+void push(double) {...}
+double pop(void){...}
+```
+gettop 放到gettop.c中
+```c
+#include <stdio.h>
+#include <ctype.h>
+#include "calc.h"
+gettop(){}
+```
+getch,ungetch放到getch.c
+```c
+#include <stdio.h>
+#define BUFSIZE 100
+char buf[BUFSIZE];
+int bufp = 0;
+int getch(void){...}
+int ungetch{...}
+```
+考虑到定义与声明文件的共享问题,我们尽可能把部分集中在一起,这样只需一个副本,改进程序也容易保证正确性.我们把公共头文件放到`calc.h`中
+```cpp
+#define NUMBER '0'
+void push(double);
+double pop(void);
+int gettop(char [])
+int getch(void);
+void ungetch(int);
+```
