@@ -1,7 +1,11 @@
 #include <stdio.h>
 #define BUFSIZE 100
-char buf[BUFSIZE];
-int bufp = 0;
+static char buf[BUFSIZE]; // ungetch函数使用的缓冲区
+static int bufp = 0; // 缓冲区buf的下一个空闲位置
+/*
+ * 要将对象指定为静态存储,可以在对象之前加上关键字`static`作为前缀,
+ * 其他函数不能访问buf与bufp,因此两个名字不会和同一文件其他相同名字冲突.
+ */
 
 /**
  * 取一个字符(也可能是压回一个字符)

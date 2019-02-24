@@ -139,7 +139,7 @@ double val[MAXVAL];
 ## 4.5 头文件
 我们对下面两个因素进行了折中:一方面是我们期望每个文件只能访问它完成任务所需的信息;另一方面是现实中维护多个头文件比较困难.
 我们可以得出这样的结论: 对于某些中等规模的程序,最好只用一个头文件存放各个程序共享的对象.较大的程序需要更多头文件,我们需要精心组织他们.
-- [RPN_calculator](./RPN_calculator)
+- [RPN_calculator](https://github.com/chenboshuo/c_learning/commit/92b4ca3aee38414bb1587c5c5b26021e2f7a5445)
 主函数main.c:
 ```c
 #include <stdio.h>
@@ -181,3 +181,9 @@ int gettop(char [])
 int getch(void);
 void ungetch(int);
 ```
+
+## 4.6 静态变量
+某些变量,比如stack.c中的sp与val以及getch.c中定义的变量buf与bufp,他们仅供源文件的函数使用,其他函数不能访问.用`stastic`声明限定外部变量与函数,可以将其后声明的对象的作用域限定为被编译源文件的剩余部分.通过`static`限定外部对象,可以达到隐藏外部对象的目的.比如getch-ungetch复合结构需要共享buf和bufp两个变量,这样buf,bufp必须是外部变量,但这两个对象不应该被getch,ungatch函数调用者访问.
+
+要将对象指定为静态存储,可以在对象之前加上关键字`static`作为前缀,其他函数不能访问buf与bufp,因此两个名字不会和同一文件其他相同名字冲突.
+-[修改后的文件]()
