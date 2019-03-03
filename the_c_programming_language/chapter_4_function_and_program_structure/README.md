@@ -257,3 +257,27 @@ char pattern[] = "ould"
 char pattern[] = {'o', 'u', 'l', 'd', '\0'}
 ```
 这种情况下,数组长度为5
+
+## 4.10 递归
+C语言当中函数会调用自身.
+如果打印十进制数,有两种方式,一个是将每个数字存到数组中,这与`3.6`的`itoa`类似,另一种是利用递归首先打印高位数字,然后再打印后面的数字
+
+[打印十进制数](https://github.com/chenboshuo/c_learning/commit/c6586292b3e2ccda0cc629ed82a537bff76a2d6c)
+
+递归函数调用自身时,每次调用都会得到一个与之前自动变量不同的新的自动变量集合.
+
+另一个说明递归的例子是快速排序.快速排序是C.A.R.Hoare于1962年发明的.
+
+1. 从数列中挑出一个元素，称为 “基准”（pivot）;
+
+2. 重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为分区（partition）操作；
+
+3. 递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序；当某个子集小于2时,这子数列不需要再次排序,终止递归
+
+![快速排序@五分钟学算法](https://mmbiz.qpic.cn/mmbiz_gif/D67peceibeISwc3aGibUlvZ0XqVnbWtBRiaAY3VU8iaziaYcxAasTdrIu69BOVPYtfvqdvicmlJDS94cG2tjwZhVkdHA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
+
+[code](https://github.com/chenboshuo/c_learning/blob/d1c18f779c6d28bffb4892207886f181469804a2/the_c_programming_language/chapter_4_function_and_program_structure/quicksort.cpp)
+
+标准库`stdlib,h`提供了qsort函数,它可用于任意对象排序.
+
+递归并不节省内存的开销, 因为递归调用过程中必须在某个地方维护一个存储处理值得栈. 递归的执行速度并不快, 但递归代码比较紧凑,比相应的非递归代码更易于编写和理解. 在描述树等递归定义的数据结构尤其方便.
