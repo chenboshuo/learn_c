@@ -278,6 +278,6 @@ C语言当中函数会调用自身.
 
 [code](https://github.com/chenboshuo/c_learning/blob/d1c18f779c6d28bffb4892207886f181469804a2/the_c_programming_language/chapter_4_function_and_program_structure/quicksort.cpp)
 
-标准库`stdlib,h`提供了qsort函数,它可用于任意对象排序.
+标准库`stdlib,h`提供了qsort函数,它可用于任意对象排序.[用法](https://github.com/chenboshuo/c_learning/blob/4cc5c1724d478e1a078380b416e27490421996ad/the_c_programming_language/chapter_4_function_and_program_structure/quicksort.cpp)
 
 递归并不节省内存的开销, 因为递归调用过程中必须在某个地方维护一个存储处理值得栈. 递归的执行速度并不快, 但递归代码比较紧凑,比相应的非递归代码更易于编写和理解. 在描述树等递归定义的数据结构尤其方便.
