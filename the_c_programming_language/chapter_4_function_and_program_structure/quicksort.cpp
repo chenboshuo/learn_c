@@ -9,14 +9,14 @@
  * 和大于基准值元素的子数列排序；
  */
 #include <stdio.h>
-
+#include <stdlib.h>
 /**
  * 以递增的顺序对v[left]...v[right]排序
  * @param v     数组
  * @param left  最左边的索引值
  * @param right 最右边的索引值
  */
-void qsort(int v[], int left, int right) {
+void qsort_(int v[], int left, int right) {
   int i,last;
   void swap(int v[], int i, int j);
 
@@ -31,8 +31,8 @@ void qsort(int v[], int left, int right) {
     }
   }
   swap(v, left, last);
-  qsort(v, left, last-1);
-  qsort(v, last+1, right);
+  qsort_(v, left, last-1);
+  qsort_(v, last+1, right);
 }
 
 /**
@@ -49,12 +49,31 @@ void swap(int v[], int i, int j) {
   v[j] = temp;
 }
 
+/**
+ * 为了调用库qsort函数的比较函数
+ * @param  a 指针
+ * @param  b 指针
+ * @return   比较大小的结果
+ */
+int cmpfunc(const void *a,const void*b) {
+  return (*(int*)a -*(int*)b);
+}
+
 int main(int argc, char const *argv[]) {
   int v[4] = {4, 3, 2, 1};
-  qsort(v,0,3);
+  qsort_(v,0,3);
   for (int i = 0; i < 4; i++) {
     printf("%d\n", v[i]);
   }
+
+  // 调用库函数
+  int a[4] = {3,4,6,1};
+  qsort(a, 4 , sizeof(int), cmpfunc);
+  printf("\n");
+  for (int i = 0; i < 4; i++) {
+    printf("%d\n", a[i]);
+  }
+
   return 0;
 }
 // output
@@ -62,3 +81,8 @@ int main(int argc, char const *argv[]) {
 // 2
 // 3
 // 4
+// 
+// 1
+// 3
+// 4
+// 6
