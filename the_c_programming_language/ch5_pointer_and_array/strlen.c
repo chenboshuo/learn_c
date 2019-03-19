@@ -6,12 +6,12 @@
  * @return   长度
  */
 int strlen(char *s){
-  int n;
+  char *p = s;
 
-  for (n = 0; *s != '\0'; s++) {
-    n++;
+  for (;*p != '\0'; p++) {
+    ;
   }
-  return n;
+  return p - s;
 }
 
 int main(int argc, char const *argv[]) {
