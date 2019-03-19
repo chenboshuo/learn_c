@@ -98,6 +98,7 @@ int strlen(char *s){
   return n;
 }
 ```
+- [代码](https://github.com/chenboshuo/c_learning/blob/f33b5a8daa156bb99621d6b63a421a2adb6d3f0d/the_c_programming_language/ch5_pointer_and_array/strlen.c)
 执行s++运算并不会影响调用者的字符串,它仅对该指针在strlen的副本中进行自增运算.
 
 在函数定义中,形式参数
@@ -121,3 +122,52 @@ f(a+2)
 都将把起始于a[2]的子数组的地址传给f,对于函数来说,它并不关心所引用的是否是一个更大数组的部分元素.
 
 如果确信相应的元素存在,也可以通过下标访问第一个元素之前的元素.`p[-1]`在语法上是合法的,当然, 引用数组边外的对象是非法的.
+
+## 5.4 地址算术运算
+
+C语言中地址运算符是一致且有规律地, 将指针,数组和地址运算符集成在一起是该语言的一大优点.我们来看一个不完善的存储分配程序.
+
+程序由两个函数组成, 第一个函数alloc(n)返回一个指向n个连续字符存储单元的指针,alloc函数的调用者可利用该指针存放字符序列,第二个函数释放存储空间,以便以后重用. 之所以说两个函数是不完善的, 是因为对afree函数调用次序必然与调用alloc的次序相反. 换句话说,alloc与afree 是以栈的方式(后进先出)进行存储空间的管理. 标准库中提供类似的功能malloc和free,他们没有这些限制.
+
+最容易实现的方法是让alloc函数对一个大字符数组allocbuf中的空间进行分配.该数组是alloc和afree的私有数组. 由于alloc和afree处理的对象是指针而不是数组下标,因此,其他函数无需知道该数组的名字,这样,可以在包含alloc和afree的源文件中将该数组声明为static类型,使他对外不可见. 实际实现时,该数组甚至可以没有名字, 它可以通过调用malloc函数或者向操作系统申请一个无名存储块的指针获得.
+
+allocbuf中的空间使用状况也是我们需要了解的信息.我们使用指针allocp指向allocbuf中的下一个空闲单元.当调用alloc申请n个字符的存储空间时,alloc检查allocbuf中有没有足够的剩余空间,则alloc返回allocp的当前值(即空闲位置开始位置),然后将alloc指向下一个空闲区域.如果空闲不够,则alloc返回0. 如果p在allocbuf的边界之内,则afree(p)仅仅只是将alloc的值设为p
+
+-[代码](https://github.com/chenboshuo/c_learning/blob/6bf92f5a21317654905cd144c85738f33c52074b/the_c_programming_language/ch5_pointer_and_array/memorry-allocation.c)
+
+C语言保证0永远不是有效的地址,因此返回值为0可以表示发生了异常事件;
+
+指针与整数之间不能相互转换,但0是唯一例外,0可以赋值给指针,指针也可以和0比较.程序中经常用`NULL`代替0,这样清晰的说明0是指针的一个特殊值.`NULL`定义在`<stddef.h>`中.
+
+指针的减法是有意义的:如果p和q指向相同数组中的元素,且`p<q`那么`q-p`就是位于p和q之间元素的数目
+
+于是可以写出strlen的[另一个版本](https://github.com/chenboshuo/c_learning/commit/a03558fbdb90460c7f09d1304a720860b5c7721f)
+
+```cpp
+int strlen(char *s){
+  char * p = s;
+
+  for (;*p != '\0'; p++) {
+    ;
+  }
+  return p - s;
+}
+
+int main(int argc, char const *argv[]) {
+  printf("%d\n", strlen("abc"));
+  return 0;
+}
+```
+
+指针的算术运算具有一致性:
+如果处理的数据类型是比字符型占据更多空间的浮点型,p是一个指向下一个浮点数的地址
+
+有效指针运算包括:
+- 指针同整数之间的加法或减法运算
+- 指向相同数组中元素的两个指针的减法或比较运算
+- 将指针赋值0或者与指针0之间的比较运算
+
+其他运算是非法的,例如:
+- 两个指针之间的加法,乘法,除法, 移位或屏蔽运算
+- 指针同float或double之间的加法运算
+- 不经过强制类型转换而直接将指向一种类型对象的指针赋值给另一种类型对象的指针运算(两个指针之一是`void*` 类型除外)
