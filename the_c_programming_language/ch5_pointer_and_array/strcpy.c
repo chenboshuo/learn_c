@@ -5,7 +5,11 @@
 #include <stdio.h>
 
 void strcpy(char *s, char *t) {
+<<<<<<< HEAD
   while (*s++ != *t++) {
+=======
+  while (*s++ = *t++) {
+>>>>>>> e8062648236ba406f22d9e566faadc1a2e5b06de
     ;
   }
 }
