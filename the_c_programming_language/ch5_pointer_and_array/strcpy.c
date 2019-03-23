@@ -1,13 +1,12 @@
 /**
  * strcpy函数: 将指针t指向的字符串复制到s指向的位置
- * 使用指针实现的版本1
+ * 使用指针实现的版本2
  */
 #include <stdio.h>
 
 void strcpy(char *s, char *t) {
-  while ((*s = *t) != '\0') {
-    s++;
-    t++;
+  while ((*s++ = *t++) != '\0') {
+    ;
   }
 }
 
