@@ -171,3 +171,63 @@ int main(int argc, char const *argv[]) {
 - 两个指针之间的加法,乘法,除法, 移位或屏蔽运算
 - 指针同float或double之间的加法运算
 - 不经过强制类型转换而直接将指向一种类型对象的指针赋值给另一种类型对象的指针运算(两个指针之一是`void*` 类型除外)
+
+# 5.5 字符指针与函数
+字符串常量是一个字符数组,例如:
+```cpp
+"I am a student"
+```
+在字符串的内部表示中,字符串与'\0'结尾,所以,程序可以通过检查空字符找到字符串的结尾.字符串常量占据的存储单元数因此比双引号中的字符数大1.
+
+字符串常量的最常见用法也许是作为函数的参数:
+```cpp
+printf("hello world");
+```
+当类似这样的一个字符串出现在程序中时,实际上是通过字符指针访问该字符串的.也就是说,字符串常量可以通过一个指向其第一个元素的指针访问.
+```cpp
+char *pmessage;
+pmessage = "now is the time"
+```
+语句将把一个指向该字符数组的指针赋给pmessage. 该过程并没有涉及到指针的操作. C语言没有提供将字符串作为一个整体进行处理的运算符.
+
+下面两个定义有很大差别:
+```cpp
+char amessage[] = "now is the time" // 定义一个数组
+char *pmessage = "now is the time" // 定义一个指针
+```
+上述声明中,amessage是一个仅仅足够存放初始化字符串以及空字符串'\0'的一维数组. 数组中的单个字符可以修改,但amessage始终指向同一个存储位置.
+另一方面,pmessage是一个指针,其初值指向一个字符串常量,之后它可以被修改指向其他的地址,但如果修改字符串的内容,结果是没有定义的
+```
+pmessage ------> now is the time\0
+amessage:now is the time
+```
+
+为了进一步研究指针和数组的其他问题,下面以标准库中两个有用的函数为例来研究他们的不同版本.
+
+第一个函数`strcpy(s,t)`把指针t指向的字符串复制到指针s的位置,如果用`s=t`实现,只是拷贝了指针,并没有复制字符. 为了进行字符串的复制,这里使用了一个循环语句.
+[第一个版本](https://github.com/chenboshuo/c_learning/blob/34da608f6d28931d8df5b4554db40497302bef3c/the_c_programming_language/ch5_pointer_and_array/strcpy.c)如下
+```cpp
+void strcpy(char *s, char *t) {
+  int i;
+
+  i = 0;
+  while ((s[i] = t[i]) != '\0') {
+    i++;
+  }
+}
+```
+为了进行[比较](https://github.com/chenboshuo/c_learning/commit/7edfbfaff27b1c1e7ec0db52749cd64507e72694),下面用[指针的方法实现](https://github.com/chenboshuo/c_learning/blob/7edfbfaff27b1c1e7ec0db52749cd64507e72694/the_c_programming_language/ch5_pointer_and_array/strcpy.c):
+```cpp
+void strcpy(char *s, char *t) {
+  while ((*s = *t) != '\0') {
+    s++;
+    t++;
+  }
+}
+```
+因为函数时通过值来传递的, 所以strcpy可以往任何方式使用s和t.
+
+经验丰富的程序员更喜欢[以下形式]()
+```cpp
+```
+-[对比]()
