@@ -227,7 +227,63 @@ void strcpy(char *s, char *t) {
 ```
 因为函数时通过值来传递的, 所以strcpy可以往任何方式使用s和t.
 
-经验丰富的程序员更喜欢[以下形式]()
+经验丰富的程序员更喜欢[以下形式](https://github.com/chenboshuo/c_learning/blob/57acf1378cdcedaa0955bcac361a46f4ebc88d5e/the_c_programming_language/ch5_pointer_and_array/strcpy.c)
 ```cpp
+void strcpy(char *s, char *t) {
+  while ((*s++ = *t++) != '\0') {
+    ;
+  }
+}
 ```
--[对比]()
+-[对比](https://github.com/chenboshuo/c_learning/commit/57acf1378cdcedaa0955bcac361a46f4ebc88d5e)
+`*t++`的值是执行自增运算前t指向的字符,后缀++表示在读取该字符后才改变t的值.
+进一步精炼[程序](https://github.com/chenboshuo/c_learning/commit/e8062648236ba406f22d9e566faadc1a2e5b06de)
+```cpp
+void strcpy(char *s, char *t) {
+  while (*s++ != *t++) {
+    ;
+  }
+}
+```
+标准库`<string.h>`中提供的函数`strcpy`把目标字符串作为函数值返回;
+
+下面我们研究字符串比较函数`strcmp(s, t)`比较字符串.该函数比较字符串s,t并根据s字典顺序小于,等于或大于t的结果分别返回负整数,0或正整数. 该返回值是s和t由前向后逐个字符比较时遇到的第一个不相等字符处字符的差值.
+```cpp
+int strcmp(char *s, char *t){
+  int i;
+
+  for (i = 0; s[i] == t[i]; i++) {
+    if (s[i] == '\0') {
+      return 0;
+    }
+  }
+  return s[i] - t[i];
+}
+```
+- [code](https://github.com/chenboshuo/c_learning/blob/036373e4984027c7654e2236d997a22f94e7b306/the_c_programming_language/ch5_pointer_and_array/strcmp.c)
+
+下面用指针的方法实现
+```cpp
+int strcmp(char *s, char *t){
+  for ( ; *s == *t; s++, t++) {
+    if (*s == '\0') {
+      return 0;
+    }
+  }
+  return * s - * t;
+}
+```
+- [代码](https://github.com/chenboshuo/c_learning/blob/73c04ed9a22c99efaf2603f69e48c4292cac9907/the_c_programming_language/ch5_pointer_and_array/strcmp.c) [对比](https://github.com/chenboshuo/c_learning/commit/73c04ed9a22c99efaf2603f69e48c4292cac9907)
+
+下列表达式
+```cpp
+*--p
+```
+在读取指针之前先对p执行自减运算, 事实上, 下面两个表达式:
+```cpp
+*p++ = val;
+val = *--p
+```
+是进出栈的标准方法.
+
+头文件`<string.h>`包含本节课提到的函数声明, 还包括标准库中其他一些字符串处理函数的声明
