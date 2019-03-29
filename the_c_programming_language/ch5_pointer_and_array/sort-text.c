@@ -68,8 +68,8 @@ void qsort(int v[], int left, int right) {
  * @param i 要交换的数字
  * @param j 要交换的数字
  */
-void swap(int v[], int i, int j) {
-  int temp;
+void swap(char *v[], int i, int j) {
+  char *temp;
 
   temp = v[i];
   v[i] = v[j];
