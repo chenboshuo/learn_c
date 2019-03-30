@@ -29,7 +29,7 @@ char *lineptr[MAXLINES];
 int readlines(char *lineptr, int nlines);
 void writelines(char *lineptr[], int nlines);
 
-void qsort(char *lineptr, int left, int right);
+void qsort(char *lineptr[], int left, int right);
 
 // 对输入的文本进行排序
 int main(int argc, char const *argv[]) {
@@ -43,9 +43,9 @@ char *alloc(int);
 
 
 
-void qsort(int v[], int left, int right) {
+void qsort(char *v[], int left, int right) {
   int i,last;
-  void swap(int v[], int i, int j);
+  void swap(char *v[], int i, int j);
 
   if (left >= right) {// 若数组元素少于2个
     return;// 不执行任何操作
@@ -84,7 +84,7 @@ static char *allocp = allocbuf; // 下一个空闲位置
  * allocbuf :　__已使用____|＿＿＿空闲＿＿＿|
  * 　　　　　　　　　　　　　↑ allocbuf
  * @param  n 字符串长度
- * @return   分配前的指针
+ * @return   指向分配前的位置的指针
  * allocbuf :　__已使用___  ____ |＿＿＿空闲＿＿＿|
  * 　　　　　　分配前的指针 ↑  n  ↑ allocbuf
  */
