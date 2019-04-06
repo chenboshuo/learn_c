@@ -74,11 +74,9 @@ int readlines(char *lineptr[], int maxlines){
 }
 
 
-void writelines(char *linptr[], int nlines) {
-  int i;
-
-  for(i = 0; i < nlines; ++i){
-    printf("%s\n", lineptr[i]);
+void writelines(char *lineptr[], int nlines) {
+  while(nlines-- >0){
+    printf("%s\n", *lineptr++);
   }
 }
 
@@ -92,7 +90,7 @@ void qsort(char *v[], int left, int right) {
   swap(v, left, (left+right)/2);// 将划分为子集的元素
   last = left;// 移动到v[0]
   for (i = left+1; i <= right; i++) {// 划分子集
-    if (v[i] < v[left]) {
+    if (strcmp(v[i], v[left]) < 0) {
       swap(v, ++last, i);// 恢复子集的元素
     }
   }
