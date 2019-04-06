@@ -24,6 +24,7 @@ C程序设计语言
 - [chapter1 introduction 导言](./the_c_programming_language/chapter1_introduction)
 - [chaper2_type_operator_and_experssion 类型,运算符与表达式](./the_c_programming_language/chaper2_type_operator_and_experssion)
 - [chaper3_flow_of_control 控制流](./the_c_programming_language/chaper3_flow_of_control)
-- [chapter_4_function_and_program_structure 函数与程序结构](the_c_programming_language/chaper2_type_operator_and_experssion./chapter_4_function_and_program_structure)
+- [chapter_4_function_and_program_structure 函数与程序结构](./the_c_programming_language/chaper2_type_operator_and_experssion./chapter_4_function_and_program_structure)
+- [ch5_pointer_and_array](- [chapter_4_function_and_program_structure 函数与程序结构](./the_c_programming_language/chaper2_type_operator_and_experssion/ch5_pointer_and_array)
 
 >[the_c_programming_language_homework C程序设计语言的相关练习](https://github.com/chenboshuo/c_learning/tree/master/the_c_programming_language_homework)
