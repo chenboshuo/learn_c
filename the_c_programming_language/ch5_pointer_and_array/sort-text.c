@@ -26,13 +26,23 @@
 
 char *lineptr[MAXLINES];
 
-int readlines(char *lineptr, int nlines);
+int readlines(char *lineptr[], int nlines);
 void writelines(char *lineptr[], int nlines);
 
 void qsort(char *lineptr[], int left, int right);
 
 // 对输入的文本进行排序
 int main(int argc, char const *argv[]) {
+  int nlines;
+
+  if ((nlines = readlines(lineptr, MAXLINES)) >= 0) {
+    qsort(lineptr, 0, nlines-1);
+    writelines(lineptr, nlines);
+    return 0;
+  }else{
+    printf("%s\n", "Error: input too big to sort");
+    return 1;
+  }
   return 0;
 }
 
@@ -41,7 +51,36 @@ int getline(char *, int);
 char *alloc(int);
 
 
+/**
+ * 读取输入行
+ * @param  lineptr  每行的地址指针
+ * @param  maxlines 最长的输入行数
+ * @return          行数
+ */
+int readlines(char *lineptr[], int maxlines){
+  int len, nlines;
+  char *p, line[MAXLEN];
+  nlines = 0;
+  while ((len = getline(line, MAXLEN)) > 0) {
+    if (nlines >= maxlines || (p = alloc(len)) == NULL) {
+      return -1;
+    } else {
+      line[len-1] = '\0'; // 删除换行符
+      strcpy(p, line);
+      lineptr[nlines++] = p;
+    }
+  }
+  return nlines;
+}
 
+
+void writelines(char *linptr[], int nlines) {
+  int i;
+
+  for(i = 0; i < nlines; ++i){
+    printf("%s\n", lineptr[i]);
+  }
+}
 
 void qsort(char *v[], int left, int right) {
   int i,last;
@@ -79,6 +118,7 @@ void swap(char *v[], int i, int j) {
 #define ALLOCDIZE 10000 // 可用空间大小
 static char allocbuf[ALLOCDIZE]; // alloc的存储区
 static char *allocp = allocbuf; // 下一个空闲位置
+
 /**
  * 分配存储空间
  * allocbuf :　__已使用____|＿＿＿空闲＿＿＿|
