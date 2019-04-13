@@ -11,6 +11,7 @@
 -----------------
 复制这条信息，￥cVhzbq9n5V8￥ ，打开【手机淘宝】即可下单
 ```
+
 ## 结构
 > [contents_of_the_class| 课上讲的内容(含课件)](https://github.com/chenboshuo/c_learning/tree/master/contents_of_the_class)
 
@@ -28,3 +29,6 @@ C程序设计语言
 - [ch5_pointer_and_array](- [chapter_4_function_and_program_structure 函数与程序结构](./the_c_programming_language/chaper2_type_operator_and_experssion/ch5_pointer_and_array)
 
 >[the_c_programming_language_homework C程序设计语言的相关练习](https://github.com/chenboshuo/c_learning/tree/master/the_c_programming_language_homework)
+
+## 许可
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。

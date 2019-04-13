@@ -341,3 +341,23 @@ int *daytab[13];
 这相当于声明了一个数组, 该数组有13个元素, 其中每个元素都是一个指向整型对象的指针.
 
 一般来说,除数组第一维(下标)可以不指定大小以外,其余个维必须指定大小.
+
+## 5.8 指针数组的初始化
+
+考虑这样一个问题, 编写一个函数math_name(n), 它返回一个指向n和月名字的字符串的指针.这是static类型数组的一种理想应用. mouth_name函数包括一个私有的字符串数组, 当它被调用时,返回一个指向正确元素的指针
+
+-[代码](https://github.com/chenboshuo/c_learning/blob/d3737a0a5e24d51856c4bf6f06ca2b4452d7e1be/the_c_programming_language/ch5_pointer_and_array/mouth_name.c)
+
+```cpp
+char * mouth_name(int n){
+  static char * name[] = {
+    "illeagal mouth",
+    "January", "Febuary", "March",
+    "April", "May", "June",
+    "July", "August", "September",
+    "October", "November", "Deceber"
+  };
+}
+```
+
+name 是个一维数组,数组的元素为一位指针. name的初始化通过一个字符串列表实现,列表中每一个字符串赋值给数组相应位置的元素. 第i个字符串中所有字符存储在存储器中的某个位置,指向它的指针存在name[i]中. 上述声明没有指定name长度, 因此,编译器编译时对初值个数进行统计,并将这一准确数字填入数组长度.
