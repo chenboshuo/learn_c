@@ -3,7 +3,7 @@
 /* 回显命令行参数: 版本1 */
 int main(int argc, char const *argv[]) {
   while(--argc > 0)
-    printf("%s%s", *++argv, (argc > 1) ? " " : "");
+    printf((argc > 1)? "%s ": "%s", *++argv);
   printf("\n");
   return 0;
 }
