@@ -1,36 +1,31 @@
-// input
-// ah Love! could you and I with Fate conspire
-// To grasp this sorry Scheme of things entire,
-// Would not we shatter it to bits -- and then
-// Re-mould it nearer to Heart's Desire!
-//
-// output
-// ah Love! could you and I with Fate conspire
-//
-// Would not we shatter it to bits -- and then
-//
-// Re-mould it nearer to Heart's Desire!
-#include "stdio.h"
+// filename: print_lines_containing_strings.c
+#include <stdio.h>
+#include <string.h>
 #define MAXLINE 1000 // 最大输入行长度
 
 int getline(char s[], int lim);
-int strindex(char source[], char searchfor[]);
-
-char pattern[] = "ould";
 
 /* 找出与模式匹配的行 */
 int main(int argc, char const *argv[]) {
   char line[MAXLINE];
   int found = 0;
-
-  while (getline(line, MAXLINE) > 0) {
-    if (strindex(line, pattern) >= 0) {
-      printf("%s\n", line);
-      found ++;
+if (argc != 2) {
+    printf("%s\n", "Usage: find pattern");
+  } else {
+    while (getline(line, MAXLINE) > 0) {
+      if (strstr(line, argv[1]) != NULL) {
+        /* 标准库函数`strstr(s,t)`返回一个指针,
+          该指针指向字符串t在s中第一次出现的位置,
+          如果没有出现s则返回NULL,该函数声明在`<string.h>`中
+         */
+        printf("%s\n", line);
+        found ++;
+      }
     }
   }
   return found;
 }
+
 /**
  * 将一行读入到s并返回其长度
  * @param  s   要写入的字符串
@@ -49,16 +44,15 @@ int getline(char s[], int lim){
   s[i] = '\0';
   return i;
 }
-int strindex(char s[], char t[]){
-  int i, j, k;
+/*
+$ print_lines_containing_strings ad
+$ administrator
+administrator
 
-  for ( i = 0; s[i] != '\0'; i++) {
-    for (j=i, k=0; t[k] != '\0' && s[j] == t[k]; j++, k++) {
-      ;
-    }
-    if (k > 0 && t[k] == '\0') {
-      return i;
-    }
-  }
-  return -1;
-}
+$ adv
+adv
+
+$ asdd
+$ cbs
+$ ^Z
+ */
