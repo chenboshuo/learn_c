@@ -14,10 +14,14 @@
 void bubble_sort(int *p, int len) {
   int _,i, j;
   for (i = 0; i < len-1; i++) {
+    int work = 1;  // work作用：如果顺序正确， 直接退出循环， 不再比较
     for (j = 0; j < len-1-i; j++) {
       if (*(p+j) > *(p+j+1)) {
-        _ = *(p+j);*(p+j) = *(p+j+1);*(p+j+1) =_;
+        _ = *(p+j);*(p+j) = *(p+j+1);*(p+j+1) =_;work = 0;
       }
+    }
+    if(work){
+      break;
     }
   }
 }
