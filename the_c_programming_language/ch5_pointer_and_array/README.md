@@ -61,7 +61,7 @@ void swap(int *px, int *py) {
 
 ## 5.3 指针与数组
 
-`int a[10]` 定义了一个长度为10的由10个对象组成的集合,这十个对象存储在相邻内存区域中,a[i]表示第i个元素,若pa声明为
+`int a[10]` 定义了一个长度为10的由10个对象组成的集合,这十个对象存储在相邻内存区域中,`a[i]`表示第i个元素,若pa声明为
 ```cpp
 int *pa;
 ```
@@ -69,11 +69,11 @@ int *pa;
 ```cpp
 pa = &a[0];
 ```
-则可以指向数组a的第0个元素,也就是说,pa的值为数组元素a[0]的地址.
+则可以指向数组a的第0个元素,也就是说,pa的值为数组元素`a[0]`的地址.
 ```cpp
 x = *pa;
 ```
-把a[0]的内容复制到变量x中.
+把`a[0]`的内容复制到变量x中.
 
 执行语句
 ```cpp
@@ -83,7 +83,7 @@ pa = &a[0]
 ```cpp
 pa = a;
 ```
-在计算数组a[i]的值时,c语言实际上先将其转化为`*(a+i)`的形式.然后再进行求值.
+在计算数组`a[i]`的值时,c语言实际上先将其转化为`*(a+i)`的形式.然后再进行求值.
 
 指针是一个变量,`p++`是合法的,数组名不是变量,`a++`语句是非法的
 
@@ -98,7 +98,7 @@ int strlen(char *s){
   return n;
 }
 ```
-- [代码](https://github.com/chenboshuo/c_learning/blob/f33b5a8daa156bb99621d6b63a421a2adb6d3f0d/the_c_programming_language/ch5_pointer_and_array/strlen.c)
+-   [代码](https://github.com/chenboshuo/c_learning/blob/f33b5a8daa156bb99621d6b63a421a2adb6d3f0d/the_c_programming_language/ch5_pointer_and_array/strlen.c)
 执行s++运算并不会影响调用者的字符串,它仅对该指针在strlen的副本中进行自增运算.
 
 在函数定义中,形式参数
@@ -119,7 +119,7 @@ f(&a[2])
 ```cpp
 f(a+2)
 ```
-都将把起始于a[2]的子数组的地址传给f,对于函数来说,它并不关心所引用的是否是一个更大数组的部分元素.
+都将把起始于`a[2]`的子数组的地址传给f,对于函数来说,它并不关心所引用的是否是一个更大数组的部分元素.
 
 如果确信相应的元素存在,也可以通过下标访问第一个元素之前的元素.`p[-1]`在语法上是合法的,当然, 引用数组边外的对象是非法的.
 
@@ -163,14 +163,14 @@ int main(int argc, char const *argv[]) {
 如果处理的数据类型是比字符型占据更多空间的浮点型,p是一个指向下一个浮点数的地址
 
 有效指针运算包括:
-- 指针同整数之间的加法或减法运算
-- 指向相同数组中元素的两个指针的减法或比较运算
-- 将指针赋值0或者与指针0之间的比较运算
+-   指针同整数之间的加法或减法运算
+-   指向相同数组中元素的两个指针的减法或比较运算
+-   将指针赋值0或者与指针0之间的比较运算
 
 其他运算是非法的,例如:
-- 两个指针之间的加法,乘法,除法, 移位或屏蔽运算
-- 指针同float或double之间的加法运算
-- 不经过强制类型转换而直接将指向一种类型对象的指针赋值给另一种类型对象的指针运算(两个指针之一是`void*` 类型除外)
+-   两个指针之间的加法,乘法,除法, 移位或屏蔽运算
+-   指针同float或double之间的加法运算
+-   不经过强制类型转换而直接将指向一种类型对象的指针赋值给另一种类型对象的指针运算(两个指针之一是`void*` 类型除外)
 
 # 5.5 字符指针与函数
 字符串常量是一个字符数组,例如:
@@ -260,7 +260,7 @@ int strcmp(char *s, char *t){
   return s[i] - t[i];
 }
 ```
-- [code](https://github.com/chenboshuo/c_learning/blob/036373e4984027c7654e2236d997a22f94e7b306/the_c_programming_language/ch5_pointer_and_array/strcmp.c)
+-   [code](https://github.com/chenboshuo/c_learning/blob/036373e4984027c7654e2236d997a22f94e7b306/the_c_programming_language/ch5_pointer_and_array/strcmp.c)
 
 下面用指针的方法实现
 ```cpp
@@ -273,7 +273,7 @@ int strcmp(char *s, char *t){
   return * s - * t;
 }
 ```
-- [代码](https://github.com/chenboshuo/c_learning/blob/73c04ed9a22c99efaf2603f69e48c4292cac9907/the_c_programming_language/ch5_pointer_and_array/strcmp.c) [对比](https://github.com/chenboshuo/c_learning/commit/73c04ed9a22c99efaf2603f69e48c4292cac9907)
+-   [代码](https://github.com/chenboshuo/c_learning/blob/73c04ed9a22c99efaf2603f69e48c4292cac9907/the_c_programming_language/ch5_pointer_and_array/strcmp.c) [对比](https://github.com/chenboshuo/c_learning/commit/73c04ed9a22c99efaf2603f69e48c4292cac9907)
 
 下列表达式
 ```cpp
@@ -308,15 +308,15 @@ val = *--p
 
 输出函数只要按照指针数组的次序依次打印这些文本即可
 
-- [对swap稍微改动](https://github.com/chenboshuo/c_learning/commit/5f7a2691a248dda1834e0a864e7c85466b2088d3)
-- [完整代码](./sort-text.c)
+-   [对swap稍微改动](https://github.com/chenboshuo/c_learning/commit/5f7a2691a248dda1834e0a864e7c85466b2088d3)
+-   [完整代码](./sort-text.c)
 
 ## 5.7 多维数组
 C语言提供了类似矩阵的多为数组, 但他们实际上并不像指针数组用的那样广泛. 我们考虑一个日期转化问题
 
 把某年某月某日这种日期表示形式转换为某年中第几天的表示形式. 例如3.1是非闰年的第60 天, 是闰年的61 天. 在这里, 我们定义两个函数进行日期转换,同时用到一张记录每月天数的表, 对于闰年与非闰年来说, 每个月天数不同, 所以把这些天数放到二维数组中比较判断2月有多少天更容易.
 
-- [代码](https://github.com/chenboshuo/c_learning/blob/eed2663724721f6185f689a3cf6f1ed7dedf438b/the_c_programming_language/ch5_pointer_and_array/day.c)
+-   [代码](https://github.com/chenboshuo/c_learning/blob/eed2663724721f6185f689a3cf6f1ed7dedf438b/the_c_programming_language/ch5_pointer_and_array/day.c)
 
 ```cpp
 static char daytab[2][13] ={
@@ -360,7 +360,7 @@ char * mouth_name(int n){
 }
 ```
 
-name 是个一维数组,数组的元素为一位指针. name的初始化通过一个字符串列表实现,列表中每一个字符串赋值给数组相应位置的元素. 第i个字符串中所有字符存储在存储器中的某个位置,指向它的指针存在name[i]中. 上述声明没有指定name长度, 因此,编译器编译时对初值个数进行统计,并将这一准确数字填入数组长度.
+name 是个一维数组,数组的元素为一位指针. name的初始化通过一个字符串列表实现,列表中每一个字符串赋值给数组相应位置的元素. 第i个字符串中所有字符存储在存储器中的某个位置,指向它的指针存在`name[i]`中. 上述声明没有指定name长度, 因此,编译器编译时对初值个数进行统计,并将这一准确数字填入数组长度.
 
 ## 5.9 指针与多维数组
 假如有这两个定义
@@ -368,7 +368,7 @@ name 是个一维数组,数组的元素为一位指针. name的初始化通过�
 int a[10][20];
 int *b[10];
 ```
-那么从语法上讲,a[3][4]和b[3][4]都是对数组的合法引用.但是a是一个真正的二维数组, 它分配了200个int长的存储空间, 并且通过常规的矩阵下标计算公式`20*row + col`得到a[row][col]的位置. 但是,对b来说,它只是分配了10 个指针,并没有对他们初始化, 他们的初始化必须通过显示方法进行, 比如静态初始化或者通过代码初始化. 假定b的每一个元素都指向20个元素的数组,那么编译器就要分配200个`int`类型长度的存储空间以及10个指针的存储空间. 指针数组的一个优点在于, 数组的每一行长度可以不同.
+那么从语法上讲,`a[3][4]`和`b[3][4]`都是对数组的合法引用.但是a是一个真正的二维数组, 它分配了200个int长的存储空间, 并且通过常规的矩阵下标计算公式`20*row + col`得到`a[row][col]`的位置. 但是,对b来说,它只是分配了10 个指针,并没有对他们初始化, 他们的初始化必须通过显示方法进行, 比如静态初始化或者通过代码初始化. 假定b的每一个元素都指向20个元素的数组,那么编译器就要分配200个`int`类型长度的存储空间以及10个指针的存储空间. 指针数组的一个优点在于, 数组的每一行长度可以不同.
 
 ```cpp
 char *name = {"illegal mounth", "Jan", "Feb"};
@@ -388,3 +388,61 @@ aname:
 0                15             30
 illegal mounth\0 Jan\0          Feb\0
 ```
+
+## 5.10 命令行参数
+支持C的环境中, 可以在程序开始执行时将命令行参数传递给程序. 调用主函数main时, 它带有两个参数. 第一个参数(习惯上成为`argc`, 用于参数计数)的值表示运行程序时命令行参数的数目; 第二个参数(称为`argv`, 用于参数参数向量)是一个指向字符串数组的指针, 其中每一个字符串对应一个参数. 我们通常用多级指针来处理这些字符串.
+
+最简单的例子是`echo`, 它将命令行参数回显在屏幕上的一行中, 其中命令行中命令行各参数之间用空格隔开.
+```
+echo hello, world
+```
+输出
+```
+hello, world
+```
+按照C语言的约定,`argv[0]`的值是启动启动该程序的程序名,因此`argc`的值至少为1. 上面这个例子`argc`值为3. 另外ANSI标准要求`argv[argc]`的值必须为一空指针.
+```
+argv:
+     |___+----> +___+--->echo\0
+                |___+--->hello,\0
+                |___+--->world\0
+                |_0_|
+```
+[echo 的第一个版本](https://github.com/chenboshuo/c_learning/blob/dc00385ad78bd1ebd5710239e7a861843fbcfb2c/the_c_programming_language/ch5_pointer_and_array/print_argv.c)将argv看成一个字符指针数组.
+因为argv是一个指向char类型的指针,所以可以通过指针而非数组下标进行自增运算.
+[echo 的第二个版本](https://github.com/chenboshuo/c_learning/commit/0fe34dd9ecacf5eb05fae043102a85db313fb4b3)在对argv进行自增运算,argc做自减运算实现的, argv是指向指针的指针.
+
+也可以将print写成[这种形式](https://github.com/chenboshuo/c_learning/commit/c8f44b8c49c8cac2e18cc8ae1e46699aac4cb75e)
+```cpp
+printf((argc > 1)? "%s ": "%s", *++argv);
+```
+说明printf的格式化参数也可以是表达式.
+
+我们来看第二个例子.在这个例子中, 我们将增强[4.1中](https://github.com/chenboshuo/c_learning/blob/87c0559dc668498a2850ad7eb28f46bb98270e56/the_c_programming_language/ch4_function_and_program_structure/print_lines_containing_strings.c)模式查找的功能.
+下面我们仿照UNIX程序grep来改写查找程序,通过命令行的一个参数指定匹配模式.
+-   [code](https://github.com/chenboshuo/c_learning/commit/4f19515fea6adec771c89b73d1c3081c80828047)
+```cpp
+strstr(line, argv[1]) != NULL
+```
+
+标准库函数`strstr(s,t)`返回一个指针,该指针指向字符串t在s中第一次出现的位置,如果没有出现s则返回NULL,该函数声明在`<string.h>`中
+
+为了进一步解释指针结构, 我们来改进模式查找程序.
+假定允许程序带两个参数, 其中一个表示"打印除匹配模式之外的所有行", 另一个参数表示"每个文本行前面加上相应行号"
+
+UNIX系统中C语言有一个公共约定: 以负号开头的参数表示一个可选标志或参数. 假定用 `-x`(表示除...之外)打印所有与模式不匹配的文本行,用`-n`(代表行号),那么下面的命令
+
+~~现在看出起名字的艺术了吧,原文里起名时find,多简洁~~
+
+```
+print_lines_containing_strings -x -n
+```
+将打印所有与模式不匹配的行, 并在每个打印行前面加上行号.
+
+可选参数可以以任意次序出现, 同时, 程序的其余部分应该与命令行参数数目无关. 此外, 如果可选参数能够组合使用, 将会给使用者带来更大方便,如
+```
+print_lines_containing_strings -nx 模式
+```
+-   [代码](https://github.com/chenboshuo/c_learning/commit/4797e73db17caa374d3526549883867e4bb2fa59)
+
+-   [还有个小错误](https://github.com/chenboshuo/c_learning/commit/0d2ce3453012d66299800abc47b74d3e209c3867)
