@@ -34,7 +34,7 @@ int main(int argc, char const *argv[]) {
           number = 1;
           break;
         defaut:
-          printf("%s\n", "print_lines_containing_strings: illeagal option %c\n", c);
+          printf("print_lines_containing_strings: illeagal option %c\n", c);
           argc = 0;
           found = -1;
           break;
