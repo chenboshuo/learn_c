@@ -1,4 +1,7 @@
 # C_learning
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/23560a0e52e04350a73b8dc903a72857)](https://app.codacy.com/app/chenboshuo/c_learning?utm_source=github.com&utm_medium=referral&utm_content=chenboshuo/c_learning&utm_campaign=Badge_Grade_Dashboard)
+
 # 我的c语言学习
 ## 参考
 - [老师的课件](https://raw.githubusercontent.com/chenboshuo/c_learning/master/contents_of_the_class/courseware.ppt)
