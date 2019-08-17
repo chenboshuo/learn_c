@@ -20,14 +20,15 @@
 > [the_c_programming_language](https://github.com/chenboshuo/c_learning/tree/master/the_c_programming_language) | C程序设计语言
 >> [chapter1 introduction](./the_c_programming_language/chapter1_introduction) | 导言
 >>
->>[chaper2_type_operator_and_experssion](./the_c_programming_language/chaper2_type_operator_and_experssion) | 类型,运算符与表达式 
+>>[chaper2_type_operator_and_experssion](./the_c_programming_language/chaper2_type_operator_and_experssion) | 类型,运算符与表达式
 >>
 >> [chaper3_flow_of_control](./the_c_programming_language/chaper3_flow_of_control) | 控制流
 >>
 >> [chapter_4_function_and_program_structure](./the_c_programming_language/chaper2_type_operator_and_experssion./chapter_4_function_and_program_structure) | 函数与程序结构
 >>
 >> [ch5_pointer_and_array](./the_c_programming_language/chaper2_type_operator_and_experssion/ch5_pointer_and_array) | 指针和数组
->
+>>
+>> [ch6_structure](./the_c_programming_language/chaper2_type_operator_and_experssion/./the_c_programming_language/chaper2_type_operator_and_experssion/ch5_pointer_and_array)| 结构
 
 
 ## 许可
